@@ -7,6 +7,11 @@ import productsRaw from '../data/products.json';
 
 const products: Product[] = productsRaw as Product[];
 
+// Debug: Warn if any product is missing a name
+products.forEach((p, i) => {
+  if (!p.name) console.warn(`⚠️ Product at index ${i} is missing a name`, p);
+});
+
 const SearchScreen = () => {
   const [query, setQuery] = useState('');
 
